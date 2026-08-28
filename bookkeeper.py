@@ -1,10 +1,16 @@
 from datetime import datetime
 from pathlib import Path
 
-def main():
+BOOK_FILE = "my_book.txt"
+
+
+def handle_input():
+    """Prompt the user and return (date, type, amount, description)."""
     date_ok = False
     while not date_ok:
-        input_date = input("input date: (YYYY-MM-DD, Enter for today): ")
+        input_date = input("input date: (YYYY-MM-DD, Enter for today, 'quit' to exit): ")
+        if input_date.strip().lower() in ("quit", "exit"):
+            raise SystemExit
         try:
             date = datetime.today().date() if input_date.strip() == "" else datetime.strptime(input_date, "%Y-%m-%d").date()
             date_ok = True
@@ -18,7 +24,7 @@ def main():
             type_ok = True
         else:
             print("invalid type, try again")
-    
+
     amount_ok = False
     while not amount_ok:
         amount_of_cash = input("input amount of cash: ")
@@ -30,42 +36,42 @@ def main():
                 print("amount must be greater than 0.")
         except ValueError:
             print("invalid amount of cash, try again.")
-    
+
     description = input("description: ")
+    return date, input_type, cash_float, description
 
+
+def handle_save(date, input_type, cash_float, description):
     record = f"{date}\t{input_type}\t{cash_float}\t{description}\n"
-
-    with open("my_book.txt", "a") as f:
+    with open(BOOK_FILE, "a") as f:
         f.write(record)
-
     print("Record saved.")
-    
-    print_book()
 
 
-def balance():
+def display_book():
+    print(f"{'date':^12}{'type':^10}{'amount':^10}{'description'}")
+    print("-" * 50)
     total = 0.0
-    with open("my_book.txt", "r") as f:
+    with open(BOOK_FILE, "r") as f:
         for line in f:
             parts = line.strip().split("\t")
             if len(parts) < 4:
                 continue
+            print(line, end="")
             sign = 1 if parts[1] == "+" else -1
             total += sign * float(parts[2])
+    print("-" * 50)
     print(f"Balance: ${total:.2f}")
 
-def print_book():
-    print(f"{'date':^12}{'type':^10}{'amount':^10}{'description'}")
-    print("-" * 50)
-    with open("my_book.txt", "r") as f:
-        for line in f:
-            print(line, end="")
-    print("-" * 50)
-    balance()
+
+def main():
+    Path(BOOK_FILE).touch()
+    display_book()
+    while True:
+        date, input_type, cash_float, description = handle_input()
+        handle_save(date, input_type, cash_float, description)
+        display_book()
 
 
 if __name__ == "__main__":
-    Path("my_book.txt").touch()
-    print_book()
-    while True:
-        main()
+    main()
