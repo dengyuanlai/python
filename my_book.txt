@@ -1,0 +1,29 @@
+2025-07-05	+	125.6	init
+2025-07-05	+	11.05	bottles
+2025-07-11	+	0.05	found coin
+2025-07-23	+	7.25	given by mom
+2025-07-24	+	0.75	given by mom
+2025-07-28	+	1.1	given by mom
+2025-08-04	-	6.5	starbucks
+2025-08-29	-	14.0	sister birthday
+2025-10-04	+	13.75	bottles
+2025-10-05	-	5.0	farmers market
+2025-10-22	-	2.0	field trip
+2025-10-30	-	20.0	spooktacular
+2025-11-20	-	47.25	book fair
+2025-11-20	+	10.0	sister
+2025-11-26	-	2.0	popcorn
+2025-12-12	+	10.0	birthday
+2025-12-13	+	20.0	birthday party
+2026-03-07	+	20.0	bottles
+2026-03-12	+	1.0	friend
+2026-03-14	-	15.0	ukelele
+2026-04-17	-	12.8	walmart/macdonalds
+2026-04-20	+	5.0	strong's giveaway
+2026-04-29	-	4.0	wizard of oz
+2026-05-10	-	20.0	mother's day
+2026-05-19	+	0.25	friend
+2026-05-21	+	4.0	owe
+2026-06-14	+	5.0	math reward
+2026-06-15	+	5.0	math reward
+2026-07-06	+	22.4	bottles
