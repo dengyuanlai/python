@@ -9,7 +9,9 @@ def handle_input():
     date_ok = False
     while not date_ok:
         input_date = input("input date: (YYYY-MM-DD, Enter for today, 'quit' to exit): ")
+        # when enter quit or exit, exit loop and program
         if input_date.strip().lower() in ("quit", "exit"):
+            print("bye~")
             raise SystemExit
         try:
             date = datetime.today().date() if input_date.strip() == "" else datetime.strptime(input_date, "%Y-%m-%d").date()
@@ -55,6 +57,7 @@ def display_book():
     with open(BOOK_FILE, "r") as f:
         for line in f:
             parts = line.strip().split("\t")
+            # invalid line, skip
             if len(parts) < 4:
                 continue
             print(line, end="")
@@ -65,6 +68,7 @@ def display_book():
 
 
 def main():
+    # ensure file exists before start
     Path(BOOK_FILE).touch()
     display_book()
     while True:
