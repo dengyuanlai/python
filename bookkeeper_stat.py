@@ -72,6 +72,16 @@ def build_report_data(year, book_records, report_data):
             
 months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
           "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+
+def monthly_report(report_data):
+    monthly_report_list = []
+    for i in range(len(report_data)):
+        report = report_data[i]
+        month_report = report[0] - report[1]
+        final_month_report = [months[i], month_report]
+        monthly_report_list.append(final_month_report)
+    return monthly_report_list
+
 def show_report(report_data):
     for i in range(len(report_data)):
         month_data = report_data[i]
@@ -88,7 +98,9 @@ def main():
         book_records = load_book()
         report_data = init_report_data()
         build_report_data(year, book_records, report_data)
+        monthly_report_list = monthly_report(report_data)
         show_report(report_data)
+        print(monthly_report_list)
 
         #display_book()
 
