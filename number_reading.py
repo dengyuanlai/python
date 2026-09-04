@@ -1,3 +1,5 @@
+import subprocess
+
 def input_number():
     number_ok = False
     while number_ok == False:
@@ -48,12 +50,17 @@ def show_number(number):
     else:
         print("too big")
 
+def speak(text):
+    subprocess.run(["say", text])
+
 def main():
     numbers = [0, 12, 102, 4578, 654633, 27564509, 1054735577]
     for number in numbers:
         print(number, show_number(number))
     
     number = input_number()
-    print(show_number(number))
+    text = show_number(number)
+    print(text)
+    speak(text)
 
 main()
