@@ -51,7 +51,10 @@ def show_number(number):
         print("too big")
 
 def speak(text):
-    subprocess.run(["say", text])
+    try: 
+        subprocess.run(["say", text])
+    except:
+        print("no voice on your device")
 
 def main():
     numbers = [0, 12, 102, 4578, 654633, 27564509, 1054735577]
