@@ -18,8 +18,14 @@ tens_multiples = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Sevent
 def convert_number(number, place_value, place_name):
     place = number // place_value
     remainder = number % place_value
-    remainder_str = "" if remainder == 0 else " " + show_number(remainder)
-    return f"{show_number(place)} {place_name}{remainder_str}"    
+    
+    result = []
+    result.append(show_number(place))
+    result.append(place_name)
+    if (remainder > 0):
+        result.append(show_number(remainder))
+    
+    return " ".join(result)
 
 def show_number(number):
     if number == 0:
