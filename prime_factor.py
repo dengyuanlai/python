@@ -96,4 +96,5 @@ def prime_factors_faster(number):
 
     return result
 
-main()
+if __name__ == "__main__":
+    main()
