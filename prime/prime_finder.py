@@ -1,5 +1,7 @@
-import math
-from prime_factor import is_prime
+try:
+    from .factor_utils import is_prime
+except ImportError:
+    from factor_utils import is_prime
 
 def main():
     number = input_number()
@@ -25,4 +27,5 @@ def check_prime(number):
 
     return "Yes, the number is prime." if result else "No, it is not prime"
 
-main()
+if __name__ == "__main__":
+    main()

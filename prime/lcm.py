@@ -1,4 +1,7 @@
-from prime_factor import prime_factors
+try:
+    from .factor_utils import prime_factors, turn_to_dict, multiply_factors
+except ImportError:
+    from factor_utils import prime_factors, turn_to_dict, multiply_factors
 
 def main():
     print(lcm(24, 36) == 72)
@@ -10,22 +13,12 @@ def main():
 
 def lcm(a, b):
     if a == 0 or b == 0:
-        raise ValueError("no lcm for zero")
+        return 0
     a_factor_dict = turn_to_dict(prime_factors(a))
     b_factor_dict = turn_to_dict(prime_factors(b))
     merge_factor_dict = merge_dict(a_factor_dict, b_factor_dict)
     #print(merge_result)
     return multiply_factors(merge_factor_dict)
-
-def turn_to_dict(factor_list):
-    factor_dict = {}
-    for factor in factor_list:
-        if factor in factor_dict:
-            factor_dict[factor] += 1
-        else:
-            factor_dict[factor] = 1
-    
-    return factor_dict          
 
 # union two factors list, if in both group, keep greater one
 def merge_dict(dict_a, dict_b):
@@ -36,12 +29,6 @@ def merge_dict(dict_a, dict_b):
         else:
             dict_b[key] = value
     return dict_b
-
-def multiply_factors(factor_dict):
-    result = 1
-    for key, value in factor_dict.items():
-        result *= key ** value
-    return result
 
 if __name__ == "__main__":
     main()
