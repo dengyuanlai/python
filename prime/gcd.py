@@ -1,7 +1,4 @@
-try:
-    from .factor_utils import prime_factors, turn_to_dict, multiply_factors
-except ImportError:
-    from factor_utils import prime_factors, turn_to_dict, multiply_factors
+from factor_utils import prime_factors, turn_to_dict, multiply_factors
 
 def gcd(a, b):
     if a == 0 or b == 0:

@@ -1,8 +1,5 @@
 import time
-try:
-    from .factor_utils import prime_factors
-except ImportError:
-    from factor_utils import prime_factors
+from factor_utils import prime_factors
     
 def main():
     number = input_number()

@@ -1,7 +1,4 @@
-try:
-    from .factor_utils import is_prime
-except ImportError:
-    from factor_utils import is_prime
+from factor_utils import is_prime
 
 def main():
     number = input_number()
