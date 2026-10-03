@@ -27,6 +27,7 @@ def turn_to_dict(factor_list):
     
     return factor_dict          
 
+# union two factors list, if in both group, keep greater one
 def merge_dict(dict_a, dict_b):
     for key, value in dict_a.items():
         if key in dict_b:
