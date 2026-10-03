@@ -27,3 +27,4 @@
 2026-06-14	+	5.0	math reward
 2026-06-15	+	5.0	math reward
 2026-07-06	+	22.4	bottles
+2026-10-03	+	22.5	bottles
