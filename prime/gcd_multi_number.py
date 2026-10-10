@@ -75,12 +75,16 @@ def main():
     
     for case in test_cases:
         result = gcd(case[0])
-        print(case, result, result == case[1])
+        print(" O " if result == case[1] else " X ", case, result)
         
 def gcd(numbers):
     factor_dict_list = []
     for number in numbers:
-        factor_dict_list.append(turn_to_dict(prime_factors(number)))
+        if number != 0:
+            factor_dict_list.append(turn_to_dict(prime_factors(number)))
+    
+    if len(factor_dict_list) == 0:
+        return 0
         
     all_factors = {}
     for dict in factor_dict_list:
