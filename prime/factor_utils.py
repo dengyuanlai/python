@@ -30,6 +30,8 @@ def is_prime_faster(number):
     return True
 
 def prime_factors(number):
+    number = abs(number)
+    
     if number < 2:
         return []
     
