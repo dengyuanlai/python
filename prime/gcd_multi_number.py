@@ -75,7 +75,8 @@ def main():
     
     for case in test_cases:
         result = gcd(case[0])
-        print(" O " if result == case[1] else " X ", case, result)
+        excepted = case[1]
+        print(" O " if result == excepted else " X ", case, result)
         
 def gcd(numbers):
     factor_dict_list = []
@@ -89,8 +90,7 @@ def gcd(numbers):
     all_factors = {}
     for dict in factor_dict_list:
         for key in dict:
-            if not key in all_factors:
-                all_factors[key] = 0
+            all_factors[key] = 0
     
     least_common_factors = {}
     for factor in all_factors:
